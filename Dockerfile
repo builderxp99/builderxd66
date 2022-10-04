@@ -1,6 +1,9 @@
 FROM alpine:3.16 as maker
 RUN apk --no-cache add alpine-sdk coreutils cmake linux-headers \ 
-  perl musl m4 sudo && adduser -G abuild -g "Alpine Package Builder" -s /bin/ash -D builder \
+  perl musl m4 sudo expat gdbm libbz2 libcrypto1.1 libffi \
+  libssl1.1 mpdecimal ncurses-libs readline sqlite-libs \
+  xz-libs zlib\
+  && adduser -G abuild -g "Alpine Package Builder" -s /bin/ash -D builder \
   && echo "builder ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers \
   && mkdir /packages \
   && chown builder:abuild /packages \
