@@ -1,8 +1,8 @@
 FROM alpine:3.16 as maker
 RUN apk --no-cache add alpine-sdk coreutils cmake linux-headers \ 
-  perl musl m4 sudo expat gdbm libbz2 libcrypto1.1 libffi \
-  libssl1.1 mpdecimal ncurses-libs readline sqlite-libs \
-  xz-libs zlib\
+  perl musl m4 sudo libtool autoconf  autoconf-archive  automake bzip2-dev \
+  expat-dev gdbm-dev libffi-dev mpdecimal-dev mpdecimal-dev \
+  ncurses-dev openssl-dev readline-dev sqlite-dev tcl-dev xz-dev zlib-dev \
   && adduser -G abuild -g "Alpine Package Builder" -s /bin/ash -D builder \
   && echo "builder ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers \
   && mkdir /packages \
