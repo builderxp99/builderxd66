@@ -1,4 +1,4 @@
-FROM alpine:3.16 as maker
+FROM alpine:latest as maker
 RUN apk --no-cache add alpine-sdk coreutils cmake linux-headers rclone \ 
   perl musl m4 sudo libtool autoconf  autoconf-archive  automake bzip2-dev \
   expat-dev gdbm-dev libffi-dev mpdecimal-dev mpdecimal-dev c-ares-dev gnutls-dev cppunit-dev\
@@ -11,11 +11,11 @@ RUN apk --no-cache add alpine-sdk coreutils cmake linux-headers rclone \
   && ln -s /var/cache/apk /etc/apk/cache
 WORKDIR /home/builder
 RUN chmod 777 /home/builder
-RUN wget https://gitlab.alpinelinux.org/alpine/aports/-/archive/3.16-stable/aports-3.16-stable.tar.gz && tar -xf aports-3.16-stable.tar.gz
+RUN wget https://gitlab.alpinelinux.org/alpine/aports/-/archive/master/aports-master.tar.gz && tar -xf aports-master.tar.gz
 
 
 
-RUN su -c "mkdir pypy && cp -r /home/builder/aports-3.16-stable/main/python3 ./pypy/ \
+RUN su -c "mkdir pypy && cp -r /home/builder/aports-master/main/python3 ./pypy/ \
    && cd pypy/python3 && abuild-keygen -i -n -a && abuild -r" builder
 
 
