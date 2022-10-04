@@ -1,4 +1,4 @@
-FROM alpine:latest as maker
+FROM alpine:20220715 as maker
 RUN apk --no-cache add alpine-sdk coreutils cmake linux-headers rclone \ 
   perl musl m4 sudo libtool autoconf  autoconf-archive  automake bzip2-dev \
   expat-dev gdbm-dev libffi-dev mpdecimal-dev mpdecimal-dev c-ares-dev gnutls-dev cppunit-dev\
