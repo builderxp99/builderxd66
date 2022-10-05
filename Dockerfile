@@ -5,7 +5,7 @@ RUN apk --no-cache add alpine-sdk coreutils cmake linux-headers rclone \
 #  ncurses-dev openssl-dev readline-dev sqlite-dev tcl-dev xz-dev zlib-dev \
 #  qt6-qtbase-dev boost-dev libtorrent-rasterbar-dev qt6-qtsvg-dev  qt6-qttools-dev samurai \
   alsa-lib-dev aom-dev bzip2-dev coreutils dav1d-dev fontconfig-dev freetype-dev \
-  fribidi-dev gnutls-dev imlib2-dev lame-dev libass-dev libdrm-dev librist-dev \
+  fribidi-dev gnutls-dev imlib2-dev lame-dev libass-dev libdrm-dev librist-dev svt-av1-dev \
   libsrt-dev libssh-dev libtheora-dev libva-dev libvdpau-dev libvorbis-dev libvpx-dev \
   libwebp-dev libxfixes-dev opus-dev perl-dev pulseaudio-dev sdl2-dev soxr-dev v4l-utils-dev \
   vidstab-dev vulkan-loader-dev x264-dev x265-dev xvidcore-dev yasm zeromq-dev zlib-dev \
