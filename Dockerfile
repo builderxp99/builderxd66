@@ -18,7 +18,7 @@ RUN wget https://gitlab.alpinelinux.org/alpine/aports/-/archive/master/aports-ma
 #RUN su -c "mkdir pypy && cp -r /home/builder/aports-master/main/python3 ./pypy/ \
 #   && cd pypy/python3 && abuild-keygen -i -n -a && abuild -r" builder
 
-RUN su -c "mkdir qbit && cp -r /home/builder/aports-master/testing/qbittorrent ./qbit/ \
+RUN su -c "mkdir qbit && cp -r /home/builder/aports-master/community/qbittorrent ./qbit/ \
    && cd qbit/qbittorrent && abuild-keygen -i -n -a && abuild -r" builder
 
 
