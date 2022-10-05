@@ -2,41 +2,13 @@ FROM alpine:20220715 as maker
 RUN apk --no-cache add alpine-sdk coreutils cmake linux-headers rclone \ 
   perl musl m4 sudo libtool autoconf  autoconf-archive  automake bzip2-dev \
   expat-dev gdbm-dev libffi-dev mpdecimal-dev mpdecimal-dev c-ares-dev gnutls-dev cppunit-dev\
-  ncurses-dev openssl-dev readline-dev sqlite-dev tcl-dev xz-dev zlib-dev \
-  qt6-qtbase-dev boost-dev libtorrent-rasterbar-dev qt6-qtsvg-dev  qt6-qttools-dev samurai \
-  alsa-lib-dev aom-dev bzip2-dev coreutils dav1d-dev fontconfig-dev
-	freetype-dev
-	fribidi-dev
-	gnutls-dev
-	imlib2-dev
-	lame-dev
-	libass-dev
-	libdrm-dev
-	librist-dev
-	libsrt-dev
-	libssh-dev
-	libtheora-dev
-	libva-dev
-	libvdpau-dev
-	libvorbis-dev
-	libvpx-dev
-	libwebp-dev
-	libxfixes-dev
-	opus-dev
-	perl-dev
-	pulseaudio-dev
-	sdl2-dev
-	soxr-dev
-	v4l-utils-dev
-	vidstab-dev
-	vulkan-loader-dev
-	x264-dev
-	x265-dev
-	xvidcore-dev
-	yasm
-	zeromq-dev
-	zlib-dev
-
+#  ncurses-dev openssl-dev readline-dev sqlite-dev tcl-dev xz-dev zlib-dev \
+#  qt6-qtbase-dev boost-dev libtorrent-rasterbar-dev qt6-qtsvg-dev  qt6-qttools-dev samurai \
+  alsa-lib-dev aom-dev bzip2-dev coreutils dav1d-dev fontconfig-dev freetype-dev \
+  fribidi-dev gnutls-dev imlib2-dev lame-dev libass-dev libdrm-dev librist-dev \
+  libsrt-dev libssh-dev libtheora-dev libva-dev libvdpau-dev libvorbis-dev libvpx-dev \
+  libwebp-dev libxfixes-dev opus-dev perl-dev pulseaudio-dev sdl2-dev soxr-dev v4l-utils-dev \
+  vidstab-dev vulkan-loader-dev x264-dev x265-dev xvidcore-dev yasm zeromq-dev zlib-dev \
   && adduser -G abuild -g "Alpine Package Builder" -s /bin/ash -D builder \
   && echo "builder ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers \
   && mkdir /packages \
@@ -52,8 +24,12 @@ RUN wget https://gitlab.alpinelinux.org/alpine/aports/-/archive/master/aports-ma
 #RUN su -c "mkdir pypy && cp -r /home/builder/aports-master/main/python3 ./pypy/ \
 #   && cd pypy/python3 && abuild-keygen -i -n -a && abuild -r" builder
 
-RUN su -c "mkdir qbit && cp -r /home/builder/aports-master/community/qbittorrent ./qbit/ \
-   && cd qbit/qbittorrent && abuild-keygen -i -n -a && abuild -r" builder
+#RUN su -c "mkdir qbit && cp -r /home/builder/aports-master/community/qbittorrent ./qbit/ \
+#   && cd qbit/qbittorrent && abuild-keygen -i -n -a && abuild -r" builder
+
+RUN su -c "mkdir mpeg && cp -r /home/builder/aports-master/community/ffmpeg ./mpeg/ \
+   && cd mpeg/ffmpeg && abuild-keygen -i -n -a && abuild -r" builder
+
 
 
 RUN mkdir /.config && mkdir /.config/rclone && mkdir /root/.config \
