@@ -3,6 +3,7 @@ RUN apk --no-cache add alpine-sdk coreutils cmake linux-headers rclone \
   perl musl m4 sudo libtool autoconf  autoconf-archive  automake bzip2-dev \
   expat-dev gdbm-dev libffi-dev mpdecimal-dev mpdecimal-dev c-ares-dev gnutls-dev cppunit-dev\
   ncurses-dev openssl-dev readline-dev sqlite-dev tcl-dev xz-dev zlib-dev \
+  qt6-qtbase-dev boost-dev libtorrent-rasterbar-dev qt6-qtsvg-dev  qt6-qttools-dev samurai \
   && adduser -G abuild -g "Alpine Package Builder" -s /bin/ash -D builder \
   && echo "builder ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers \
   && mkdir /packages \
