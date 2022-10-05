@@ -37,5 +37,5 @@ RUN mkdir /.config && mkdir /.config/rclone && mkdir /root/.config \
 RUN curl -L https://gist.githubusercontent.com/tonmoyislam250/51987f3eac6963992a8d09debaf9d4d8/raw/ea7a0a0895e1060f8224e4e8950cca064acf25f1/gistfile1.txt >/.config/rclone/rclone.conf
 RUN cp /.config/rclone/rclone.conf /root/.config/rclone/
 RUN ls -a /home/builder/ && ls -a /home/builder/qbit/
-RUN apk add --allow-untrusted /home/builder/packages/qbit/x86_64/qbittorrent-nox-4.4.5-r0.apk && qbittorrent-nox --help
+#RUN apk add --allow-untrusted /home/builder/packages/qbit/x86_64/qbittorrent-nox-4.4.5-r0.apk && qbittorrent-nox --help
 RUN rclone copy /home/builder/packages/ teamdrive:qbit/Sharedlib/
